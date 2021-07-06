@@ -61,7 +61,106 @@ function executeProgram() {
 }
 
 // perform the operations that were input by the user
+// written by Brandon Horlacher
 function performInstructions() {
+    while (opCode !== 43) {
+        loadNextInstruction();
+
+        switch (opCode) {
+            case 10: // read
+                read(operand);
+                break;
+            case 11: // write
+                write(operand);
+                break;
+            case 20: // load
+                load(operand);
+                break;
+            case 21: // store
+                store(operand);
+                break;
+            case 30: // add
+                add(operand);
+                break;
+            case 31: // subtract
+                subtract(operand);
+                break;
+            case 32: // divide
+                divide(operand);
+                break;
+            case 33: // multiply
+                multiply(operand);
+                break;
+            default:
+                break;
+        }
+    }
+}
+
+// load the next instruction, opcode, and operand into the registers
+// written by Brandon Horlacher
+function loadNextInstruction() {
+    switch (opCode) {
+        case 0:
+            instructionCounter = 0;
+            break;
+        case 40:
+            instructionCounter = operand;
+            break;
+        case 41:
+            if (accumulator < 0) {
+                instructionCounter = operand;
+            } else {
+                instructionCounter++;
+            }
+            break;
+        case 42:
+            if (accumulator === 0) {
+                instructionCounter = operand;
+            } else {
+                instructionCounter++;
+            }
+            break;
+        default:
+            instructionCounter++;
+            break;
+    }
+
+    instructionRegister = memory[instructionCounter];
+    opCode = Number.parseInt(('' + instructionRegister).substring(0, 2));
+    operand = Number.parseInt(('' + instructionRegister).substring(2, 4));
+}
+
+
+function read(operand) {
+    // todo
+}
+
+function write(operand) {
+    // todo
+}
+
+function load(operand) {
+    // todo
+}
+
+function store(operand) {
+    // todo
+}
+
+function add(operand) {
+    // todo
+}
+
+function subtract(operand) {
+    // todo
+}
+
+function divide(operand) {
+    // todo
+}
+
+function multiply(operand) {
     // todo
 }
 
