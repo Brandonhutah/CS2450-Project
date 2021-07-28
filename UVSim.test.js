@@ -26,4 +26,12 @@ test('store puts number in accumulator into correct memory location', () => {
 	expect(uvsim.memory[11]).toBe(20)
 })
 
+test('+1010 is valid instruction', () => {
+	expect(uvsim.validateInstruction('+1010')).toBe(true)
+})
+
+test('+10101 is invalid instruction', () => {
+	expect(uvsim.validateInstruction('+10101')).toBe(false)
+})
+
 afterAll(() => uvsim.prompts.close())
