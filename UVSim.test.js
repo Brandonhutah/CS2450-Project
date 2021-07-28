@@ -16,4 +16,14 @@ test('write console logs correct value', () => {
 	expect(consoleSpy).toHaveBeenCalledWith('00020')
 })
 
+test('load puts correct number into accumulator', () => {
+	uvsim.load(10)
+	expect(uvsim.accumulator).toBe(20)
+})
+
+test('store puts number in accumulator into correct memory location', () => {
+	uvsim.store(11)
+	expect(uvsim.memory[11]).toBe(20)
+})
+
 afterAll(() => uvsim.prompts.close())
