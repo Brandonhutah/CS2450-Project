@@ -49,6 +49,7 @@ function getUserInstructions() {
 }
 
 // validate the input instruction was valid
+// written by Benjamin Larsen
 function validateInstruction(instruction) {
 	if (!instruction.match(/^\+\d{4}$/)) return false
 	const checkOpCode = instruction.substring(1,3)
@@ -137,19 +138,23 @@ function loadNextInstruction() {
 }
 
 
+// written by Benjamin Larsen
 function read(operand) {
 	const response = readlineSync.question("Enter an integer: ")
 	memory[operand] = response
 }
 
+// written by Benjamin Larsen
 function write(operand) {
 	console.log(memory[operand])
 }
 
+// written by Benjamin Larsen
 function load(operand) {
 	accumulator = memory[operand]
 }
 
+// written by Benjamin Larsen
 function store(operand) {
 	memory[operand] = accumulator
 }
