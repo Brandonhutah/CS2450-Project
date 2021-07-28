@@ -8,6 +8,9 @@ class UVSim {
 		// where users input instructions are stored
 		this.memorySize = 100;
 		this.memory = [];
+		for (let i = 0; i < this.memorySize; i++) {
+				this.memory.push(0);
+		}
 		this.instructionCounter = 0;
 		this.accumulator = 0;
 		this.instructionRegister = 0;
@@ -17,10 +20,6 @@ class UVSim {
 	}
 
 	initializeProgram() {
-			for (let i = 0; i < this.memorySize; i++) {
-					this.memory.push(0);
-			}
-
 			this.displayUserInstructions();
 			this.getUserInstructions();
 	}
@@ -142,8 +141,9 @@ class UVSim {
 
 
 	// written by Benjamin Larsen
-	read(operand) {
-		const response = this.readlineSync.question("Enter an integer: ")
+	// input allows override of reading from console for testing
+	read(operand, input = null) {
+		const response = input || this.readlineSync.question("Enter an integer: ")
 		this.memory[operand] = response
 	}
 
