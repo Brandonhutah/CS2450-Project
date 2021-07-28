@@ -11,6 +11,7 @@ let accumulator = 0;
 let instructionRegister = 0;
 let opCode = 0;
 let operand = 0;
+const allOpCodes = [10,11,20,21,30,31,32,33,40,41,42,43];
 
 function initializeProgram() {
     for (let i = 0; i < memorySize; i++) {
@@ -49,8 +50,10 @@ function getUserInstructions() {
 
 // validate the input instruction was valid
 function validateInstruction(instruction) {
-    // todo
-    return true;
+	if (!instruction.match(/^\+\d{4}$/)) return false
+	const checkOpCode = instruction.substring(1,3)
+	if (!allOpCodes.includes(parseInt(checkOpCode))) return false
+	return true;
 }
 
 // execute the program input by the user and print the state of registers and memory after
