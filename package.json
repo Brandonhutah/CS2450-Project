@@ -18,5 +18,8 @@
   "homepage": "https://github.com/Brandonhutah/CS2450-Project#readme",
   "devDependencies": {
     "jest": "^27.0.6"
+  },
+  "dependencies": {
+    "readline-sync": "^1.4.10"
   }
 }

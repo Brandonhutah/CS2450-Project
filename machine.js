@@ -1,6 +1,7 @@
 // setup to turn JS into a console program
 var rl = require("readline");
 var prompts = rl.createInterface(process.stdin, process.stdout);
+var readlineSync = require('readline-sync');
 
 // where users input instructions are stored
 let memorySize = 100;
@@ -40,6 +41,7 @@ function getUserInstructions() {
 
             getUserInstructions();
         } else {
+						prompts.close();
             executeProgram();
         }
     });
@@ -133,8 +135,8 @@ function loadNextInstruction() {
 
 
 function read(operand) {
-	prompts.question(`Enter an integer:`, (response) => {
-	})
+	const response = readlineSync.question("Enter an integer: ")
+	memory[operand] = response
 }
 
 function write(operand) {
