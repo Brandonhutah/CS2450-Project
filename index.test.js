@@ -1,4 +1,4 @@
-const index = require('./index')
+const index = require('./UVSim.js')
 
 test('test', () => {
 	expect(true).toBe(true)

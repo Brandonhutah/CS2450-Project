@@ -1,4 +1,5 @@
-const machine = require('./machine.js')
+const UVSim = require('./UVSim.js')
 
 // start the program
-machine.initializeProgram()
+const uvsim = new UVSim()
+uvsim.initializeProgram()
