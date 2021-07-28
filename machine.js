@@ -140,15 +140,15 @@ function read(operand) {
 }
 
 function write(operand) {
-    // todo
+	console.log(memory[operand])
 }
 
 function load(operand) {
-    // todo
+	accumulator = memory[operand]
 }
 
 function store(operand) {
-    // todo
+	memory[operand] = accumulator
 }
 
 function add(operand) {
@@ -199,7 +199,7 @@ function printMemory() {
 
 // format a number value with the given number of minimum digits
 function formatNumber(digits, value) {
-    return value.toLocaleString('en-US', {
+    return parseInt(value).toLocaleString('en-US', {
         minimumIntegerDigits: digits,
         useGrouping: false
     });
