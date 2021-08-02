@@ -1,6 +1,6 @@
 # CS 2450 Milestone 1
 
-Milestone 1 deliverables for CS 2450. Included in this directory are the meeting log, paper comparing SCRUM to another process model, the use-case diagram, and the javascript prototype.
+Milestone 1 deliverables for CS 2450. Included in this directory are the meeting log, paper comparing SCRUM to another process model, the use-case diagram, and the javascript prototype. The docuements are in a sub-folder named Documents.
 
 ---
 ## Requirements
