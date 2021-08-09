@@ -1,3 +1,4 @@
+// written by Ryan Worsham
 import {Component} from '@angular/core';
 import {Processor} from "./models/Processor";
 import {Add, Divide, Load, Multiply, Read, Store, Subtract, Write} from "./models/Operation";

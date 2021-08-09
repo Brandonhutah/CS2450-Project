@@ -1,3 +1,4 @@
+// written by Brandon Horlacher
 export class Processor {
   memorySize: number = 100;
   validOpCodes = [10, 11, 20, 21, 30, 31, 32, 33, 40, 41, 42, 43];

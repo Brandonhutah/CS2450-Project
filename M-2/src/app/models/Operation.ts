@@ -1,3 +1,4 @@
+// written by Benjamin Larsen
 import {Processor} from "./Processor";
 
 export interface Operation {
