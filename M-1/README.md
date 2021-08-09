@@ -44,7 +44,7 @@ After installing node, you will need to install the node packages used by this p
 ---
 ## Running the project
 
-    $ node index.js
+    $ node index.html
 
 ## Running the tests
 

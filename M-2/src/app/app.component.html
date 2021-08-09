@@ -1,0 +1,82 @@
+<nav class="navbar navbar-dark bg-dark">
+  <div class="container-fluid">
+    <span class="navbar-brand mb-0 h1">Milestone 2</span>
+    <span class="navbar-text">
+        Written by Brandon Horlacher, Benjamin Larsen, Ryan Worsham
+      </span>
+  </div>
+</nav>
+<div class="container pt-2">
+  <div class="row">
+    <div class="col">
+      <div class="card">
+        <div class="card-body">
+          Please enter your program one instruction at a time into the input in the format '+1020'. Click the 'Run' button when you're
+          finished to run the program. Click the 'Reset' button to clear out all entered instructions and start again.
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row pt-2">
+    <div class="col-4">
+      <div class="row">
+        <div class="col">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Registers</h5>
+              <p class="card-text" *ngFor="let register of processor.printRegisters()">{{register}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row pt-2">
+        <div class="col">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Instruction Input</h5>
+              <div class="input-group mb-3">
+                <span class="input-group-text">{{processor.getInstructionCounter()}}</span>
+                <input type="text" class="form-control" placeholder="Instruction" [(ngModel)]="tempInst" (keyup)="checkForEnterKey($event)">
+                <button class="btn btn-outline-secondary" type="button" (click)="addInstruction(tempInst)">Add</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row pt-2">
+        <div class="col">
+          <div class="card">
+            <div class="card-body">
+              <div class="d-flex justify-content-evenly">
+                <button type="button" class="btn btn-success" (click)="runProgram()">Run</button>
+                <button type="button" class="btn btn-danger" (click)="init()">Reset</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-8">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Memory</h5>
+          <table>
+            <tr *ngFor="let row of processor.printMemory(); first as firstRow">
+              <td *ngFor="let column of row; first as firstCol" [ngClass]="{'fw-bold': firstRow || firstCol}" class="p-2">{{column}}</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row pt-2">
+    <div class="col">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Output</h5>
+          <p class="card-text" *ngFor="let message of output">{{message}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
