@@ -56,8 +56,8 @@ export class Processor {
     return this.opCode != 43;
   }
 
-  getInstructionCounter(): string {
-    return this.formatNumber(2, this.instructionCounter);
+  getInstructionCounter(): number {
+    return this.instructionCounter;
   }
 
   setInstruction(instruction: number): void {
@@ -94,11 +94,11 @@ export class Processor {
   printRegisters(): string[] {
     let registerString: string[] = [];
 
-    registerString.push('Accumulator:           ' + this.formatNumber(6, this.accumulator));
-    registerString.push('Instruction Counter:       ' + this.formatNumber(2, this.instructionCounter));
-    registerString.push('Instruction Register:   ' + this.formatNumber(6, this.instructionRegister));
-    registerString.push('Operation Code:            ' + this.formatNumber(2, this.opCode));
-    registerString.push('Operand:                  ' + this.formatNumber(2, this.operand));
+    registerString.push('Accumulator: ' + this.formatNumber(6, this.accumulator));
+    registerString.push('Instruction Counter: ' + this.formatNumber(2, this.instructionCounter));
+    registerString.push('Instruction Register: ' + this.formatNumber(6, this.instructionRegister));
+    registerString.push('Operation Code: ' + this.formatNumber(2, this.opCode));
+    registerString.push('Operand: ' + this.formatNumber(2, this.operand));
 
     return registerString;
   }
@@ -136,6 +136,7 @@ export class Processor {
 
   getInstructionBlob(): Blob {
     let instructions = '';
+
     this.memory.forEach(memoryItem => {
       if (memoryItem != 0) {
         if (memoryItem > 0) {
@@ -146,7 +147,7 @@ export class Processor {
       }
     });
 
-    return new Blob([instructions],
-      { type: "text/plain;charset=utf-8" });
+    return new Blob([instructions.substring(0, instructions.length - 2)],
+      {type: "text/plain;charset=utf-8"});
   }
 }

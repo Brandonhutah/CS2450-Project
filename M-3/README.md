@@ -1,8 +1,12 @@
-# M2
+# M3
 
 This project was generated with [Angular CLI](https://angular.io/cli) version 12.2.0. To run the project please follow
 the Angular CLI instructions to install Angular CLI. After installing the Angular CLI global NPM package,
 run `npm install` in the project directory to install the needed packages for this project.
+
+## Running unit tests
+
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
 ## Running
 
