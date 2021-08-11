@@ -7,10 +7,10 @@
   },
   "files": [
     "src/main.ts",
-    "src/polyfills.ts",
-    "src/models/Operation.ts"
+    "src/polyfills.ts"
   ],
   "include": [
-    "src/**/*.d.ts"
+    "src/**/*.d.ts",
+    "src/models/Operation.ts"
   ]
 }
