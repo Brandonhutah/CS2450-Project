@@ -1,0 +1,88 @@
+<nav class="navbar navbar-dark bg-dark">
+  <div class="container-fluid">
+    <span class="navbar-brand mb-0 h1">Milestone 2</span>
+    <span class="navbar-text">
+        Written by Brandon Horlacher, Benjamin Larsen
+      </span>
+  </div>
+</nav>
+<div class="container pt-2">
+  <div class="row">
+    <div class="col">
+      <div class="card">
+        <div class="card-body">
+          Please enter your program one instruction line into the input in the format '+1020'. Click the 'Run' button when you're
+          finished to run the program. Click the 'Reset' button to clear out all entered instructions and start again.
+          <br>
+          Alternatively, you can load a program from a text file with one instruction per line, or store your current program to a text file, using the 'Load' and 'Save' buttons.
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row pt-2">
+    <div class="col-4">
+      <div class="row">
+        <div class="col">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Registers</h5>
+              <p class="card-text" *ngFor="let register of processor.printRegisters()">{{register}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row pt-2">
+        <div class="col">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Instruction Input</h5>
+              <div class="input-group mb-3">
+                <textarea class="form-control" placeholder="Instructions" [(ngModel)]="tempInst"></textarea>
+              </div>
+              <button class="btn btn-outline-secondary" type="button" (click)="addInstructions(tempInst)">Add Instructions</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row pt-2">
+        <div class="col">
+          <div class="card">
+            <div class="card-body">
+                <div class="d-flex justify-content-evenly">
+                  <button type="button" class="btn btn-success" (click)="runProgram()">Run</button>
+                  <button type="button" class="btn btn-danger" (click)="init()">Reset</button>
+                </div>
+                <div class="d-flex justify-content-evenly pt-2">
+                  <button type="button" class="btn btn-primary" (click)="fileInput.click()">Load</button>
+                  <input hidden (change)="onFileSelected()" #fileInput type="file" id="file">
+                  <button type="button" class="btn btn-primary" (click)="saveToFile()">Save</button>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-8">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Memory</h5>
+          <table>
+            <tr *ngFor="let row of processor.printMemory(); first as firstRow">
+              <td *ngFor="let column of row; first as firstCol" [ngClass]="{'fw-bold': firstRow || firstCol}" class="p-2">{{column}}</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row pt-2">
+    <div class="col">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Output</h5>
+          <p class="card-text" *ngFor="let message of output">{{message}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
